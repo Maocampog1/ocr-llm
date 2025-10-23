@@ -76,3 +76,60 @@ http://localhost:8501
 ```
 
 ---
+
+## Puntos de Discusión y Reflexión Final
+
+### Diferencias de velocidad entre GROQ y Hugging Face
+Durante el desarrollo del proyecto se intentó conectar Hugging Face con el modelo `mistralai/Mistral-7B-Instruct-v0.2`,  
+pero la API devolvía errores de conexión y tiempos de respuesta muy altos.  
+Por eso, se decidió trabajar solo con GROQ, el cual resultó ser mucho más rápido y estable.
+
+Explicación técnica:
+- GROQ utiliza infraestructura optimizada en hardware para ejecutar modelos con baja latencia, lo que hace que las respuestas sean casi instantáneas.  
+- Hugging Face, en cambio, funciona sobre servidores compartidos, lo que puede generar demoras variables por uso simultáneo o “cold starts”.  
+- GROQ ofrece una velocidad superior y una experiencia más fluida, mientras que Hugging Face destaca por su variedad de modelos, aunque con tiempos de respuesta menos predecibles.
+
+### Cómo afecta el parámetro temperature
+El parámetro temperature controla la creatividad o precisión del modelo:
+
+- Valores bajos (0.0 – 0.3): respuestas precisas, repetibles y más lógicas.  
+  Ideal para análisis de sentimiento, resumen estructurado o traducción literal.  
+- Valores altos (0.6 – 1.0): respuestas más creativas, variadas y con matices.  
+  Útil para redacciones más libres o generación de ideas nuevas.
+
+En este taller se usaron valores bajos para mantener la coherencia y evitar respuestas aleatorias.
+
+### Importancia del texto extraído por el OCR
+La calidad del texto obtenido con OCR fue clave para el rendimiento del modelo LLM.
+
+Al inicio, se probó un método que no detectaba bien las palabras ni los acentos, lo que provocaba que las respuestas del modelo fueran confusas.  
+Después, con la implementación de EasyOCR cacheado y configurado correctamente, el texto se extrajo de forma más limpia y coherente, mejorando el análisis del LLM.
+
+Un texto claro y bien estructurado permite al modelo generar resultados más acertados.  
+La calidad del OCR define la calidad del análisis final.
+
+### Qué más se podría integrar en la aplicación
+Algunas ideas futuras para ampliar esta app serían:
+
+- Clasificación automática del texto (por tipo: noticia, carta, reseña, etc.).  
+- Preguntas y respuestas sobre el texto detectado.  
+- Mejoras gramaticales y ortográficas al texto OCR.  
+- Traducciones a más idiomas (francés, portugués, alemán, etc.).  
+- Identificación de lugares, personas o fechas dentro del texto.  
+- Generación de texto creativo, como resúmenes poéticos o narrativos a partir del contenido.  
+
+Estas extensiones podrían hacerse fácilmente reutilizando el mismo flujo OCR + LLM y ampliando las opciones de tarea.
+
+## Conclusión General
+Este proyecto permitió aprender de forma práctica cómo combinar dos ramas muy diferentes de la Inteligencia Artificial:  
+la Visión Artificial (OCR) para reconocer texto desde imágenes, y el Procesamiento de Lenguaje Natural (LLM) para entender, analizar y transformar ese texto.
+
+Durante el desarrollo se comprendió cómo funcionan herramientas modernas como Streamlit, EasyOCR y GROQ,  
+así como la importancia de manejar correctamente parámetros como la temperature y la limpieza del texto de entrada.
+
+Además de ser un proyecto técnico, fue una experiencia muy interesante y divertida,  
+ya que permitió integrar conocimientos de programación, IA y diseño de interfaces en una aplicación completa y funcional.
+
+Gracias profe por las clases.  
+**Att:** Luis, Camilo y Aleja.
+
