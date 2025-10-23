@@ -1,0 +1,18 @@
+# Entornos virtuales
+venv/
+__pycache__/
+*.pyc
+
+# Archivos de entorno y configuración privada
+.env
+
+# Archivos temporales o de caché
+.DS_Store
+*.log
+.cache/
+
+# Archivos generados por Streamlit
+.streamlit/
+
+# Archivos del sistema (Windows)
+Thumbs.db
