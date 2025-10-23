@@ -11,11 +11,33 @@ import cv2
 import easyocr
 
 
-# Configuración de la página
 
-st.set_page_config(page_title="Taller IA: OCR + LLM", page_icon=None, layout="centered")
-st.title("Taller IA: OCR + LLM")
-st.caption("OCR con EasyOCR y análisis con GROQ. Todo en español, excepto la tarea de traducir al inglés.")
+
+# Configuración general de la página
+st.set_page_config(page_title="Taller IA: OCR + LLM", page_icon="🤖", layout="centered")
+
+# Encabezado bonitooo
+st.markdown(
+    """
+    <div style="
+        background-color:#f0f2f6;
+        padding:20px;
+        border-radius:15px;
+        text-align:center;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        ">
+        <h1 style="color:#2c3e50;"> Proyecto IA: OCR + LLM</h1>
+        <p style="color:#34495e; font-size:18px;">
+        Este trabajo es una demostración práctica donde construimos una aplicación web interactiva de principio a fin.<br>
+        El objetivo es integrar dos dominios de la Inteligencia Artificial:<br>
+        <b>Visión Artificial</b> para <i>"leer"</i> texto de imágenes y<br>
+        <b>Procesamiento de Lenguaje Natural (NLP)</b> para <i>"entender"</i> y <i>"transformar"</i> ese texto.
+        </p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
 
 # Clave GROQ cargada desde .env
 
